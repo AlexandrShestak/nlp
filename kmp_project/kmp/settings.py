@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for killMePlease project
+# Scrapy settings for kmp project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'killMePlease'
+BOT_NAME = 'kmp'
 
-SPIDER_MODULES = ['killMePlease.spiders']
-NEWSPIDER_MODULE = 'killMePlease.spiders'
+SPIDER_MODULES = ['kmp.spiders']
+NEWSPIDER_MODULE = 'kmp.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'killMePlease (+http://www.yourdomain.com)'
+#USER_AGENT = 'kmp (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
@@ -44,13 +44,13 @@ NEWSPIDER_MODULE = 'killMePlease.spiders'
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'killMePlease.middlewares.MyCustomSpiderMiddleware': 543,
+#    'kmp.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'killMePlease.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'kmp.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -62,7 +62,7 @@ NEWSPIDER_MODULE = 'killMePlease.spiders'
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'killMePlease.pipelines.SomePipeline': 300,
+#    'kmp.pipelines.SomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

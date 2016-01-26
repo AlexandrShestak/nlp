@@ -9,4 +9,6 @@ with open('items.csv') as csvfile:
         exclude = set(string.punctuation)
         post_text = ''.join(ch for ch in post_text if ch not in exclude)
         print(post_text)
+        post_text = ''.join([i for i in post_text if not i.isdigit()])
+        print(post_text)
         post_stars = row['stars']

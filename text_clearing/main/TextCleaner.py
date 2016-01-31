@@ -2,11 +2,9 @@ import csv
 import string
 import math
 import sys
-import nltk
 from nltk.stem.snowball import RussianStemmer
 from textblob import TextBlob as tb
-
-nltk.download('punkt')
+from decimal import *
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -14,7 +12,7 @@ from stop_words import get_stop_words
 
 
 def tf(word, blob):
-    return blob.words.count(word) / len(blob.words)
+    return Decimal(blob.words.count(word)) / Decimal(len(blob.words))
 
 
 def n_containing(word, bloblist):
@@ -22,7 +20,7 @@ def n_containing(word, bloblist):
 
 
 def idf(word, bloblist):
-    return math.log(len(bloblist) / (1 + n_containing(word, bloblist)))
+    return Decimal(math.log(Decimal(len(bloblist)) /Decimal ((1 + n_containing(word, bloblist)))))
 
 
 def tfidf(word, blob, bloblist):
@@ -64,7 +62,8 @@ for i, blob in enumerate(bloblist):
     print("Top words in document {}".format(i + 1))
     scores = {word: tfidf(word, blob, bloblist) for word in blob.words}
     sorted_words = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    for word, score in sorted_words[:3]:
-        print("\tWord: {}, TF-IDF: {}".format(word, round(score, 5)))
+    for word, score in sorted_words[:7]:
+        print("\tWord: {}, TF-IDF: {}".format(word, score))
+
 
 

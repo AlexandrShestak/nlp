@@ -41,6 +41,8 @@ with open('items.csv') as csvfile:
         rs = RussianStemmer()
         words_after_stemming = [rs.stem(unicode(w, "utf-8")) for w in words_after_deleting_stop_words]
         text_after_cleaning = ' '.join(words_after_stemming)
+        # next line delete file content
+        open('text_after_cleaning.txt', 'w').close()
         if text_after_cleaning:
             with open("text_after_cleaning.txt", "a") as myfile:
                 myfile.write(text_after_cleaning + '\n')

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import csv
 import string
 import math
@@ -27,22 +28,27 @@ def tfidf(word, blob, bloblist):
     return tf(word, blob) * idf(word, bloblist)
 
 count = 0
+# next line delete file content
+open('text_after_cleaning.txt', 'w').close()
+
 with open('items.csv') as csvfile:
     reader = csv.DictReader(csvfile)
+    myPunctuation = u'–«»'
+    exclude = set(string.punctuation+myPunctuation)
+
     for row in reader:
         text_before_cleaning = row['post_text']
         post_text = row['post_text']
-        exclude = set(string.punctuation)
+        post_text = unicode(post_text, "utf-8")
         post_text = ''.join(ch for ch in post_text if ch not in exclude)
         post_text = ''.join([i for i in post_text if not i.isdigit()])
         post_words = post_text.split()
         stop_words = get_stop_words('ru')
         words_after_deleting_stop_words = [w for w in post_text.split() if not w in stop_words]
         rs = RussianStemmer()
-        words_after_stemming = [rs.stem(unicode(w, "utf-8")) for w in words_after_deleting_stop_words]
+        words_after_stemming = [rs.stem(w) for w in words_after_deleting_stop_words]
         text_after_cleaning = ' '.join(words_after_stemming)
-        # next line delete file content
-        open('text_after_cleaning.txt', 'w').close()
+        # this check on empty(null) document
         if text_after_cleaning:
             with open("text_after_cleaning.txt", "a") as myfile:
                 myfile.write(text_after_cleaning + '\n')

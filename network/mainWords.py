@@ -35,10 +35,10 @@ with open("text_after_cleaning_for_main_words.csv") as f:
             if unicode(w, "utf-8") in w2v_model.vocab:
                 only_in_word2vec_model_words += w + ' '
         print only_in_word2vec_model_words
-        bloblist.append(tb(row['post_text']))
+        bloblist.append(tb(only_in_word2vec_model_words))
         stars.append(row['stars'])
 
-# main_words_file_name = 'main_words_new.csv'
+#main_words_file_name = 'main_words_new_new.csv'
 open(main_words_file_name, 'w').close()
 with open(main_words_file_name, 'w') as main_words_file:
     fieldnames = ['main_words', 'stars']
